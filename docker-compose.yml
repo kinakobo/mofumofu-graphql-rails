@@ -6,6 +6,8 @@ services:
       MYSQL_ALLOW_EMPTY_PASSWORD: "true"
     volumes_from:
       - datastore
+    ports:
+      - "3306:3306"
 
   rails:
     build:
@@ -20,6 +22,8 @@ services:
       - mysql
     environment:
       MYSQL_HOST: mysql
+    ports:
+      - "3000:3000"
     tty: true
     stdin_open: true
 
